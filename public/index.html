@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Расписание</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <h1 class="site-title">Расписание</h1>
+    <nav class="mode-tabs">
+      <button class="mode-tab active" data-mode="group">По группе</button>
+      <button class="mode-tab" data-mode="staff">По преподавателю</button>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="panel-group" class="selector-panel">
+    <div class="selector-row">
+      <label for="group-select">Группа:</label>
+      <select id="group-select">
+        <option value="">— выберите группу —</option>
+      </select>
+    </div>
+  </section>
+
+  <section id="panel-staff" class="selector-panel hidden">
+    <div class="selector-row">
+      <label for="staff-search">Поиск преподавателя:</label>
+      <div class="search-wrap">
+        <input type="text" id="staff-search" placeholder="Введите фамилию..." autocomplete="off" />
+        <div id="staff-suggestions" class="suggestions hidden"></div>
+      </div>
+      <button id="staff-search-btn">Найти</button>
+    </div>
+  </section>
+
+  <nav id="week-nav" class="week-nav hidden">
+    <button id="btn-prev-week" class="btn-week" disabled>Пред. неделя</button>
+    <span id="current-week-label" class="week-label"></span>
+    <button id="btn-next-week" class="btn-week" disabled>След. неделя</button>
+  </nav>
+
+  <div id="error-msg" class="error-msg hidden"></div>
+  <div id="loading" class="loading hidden">
+    <div class="spinner"></div>
+    <span>Загрузка расписания...</span>
+  </div>
+
+  <div id="schedule-header" class="schedule-header hidden">
+    <h2 id="schedule-title"></h2>
+  </div>
+
+  <div id="schedule-wrap" class="schedule-wrap hidden">
+    <div class="table-scroll">
+      <table id="schedule-table" class="schedule-table">
+        <thead id="schedule-thead"></thead>
+        <tbody id="schedule-tbody"></tbody>
+      </table>
+    </div>
+    <div id="schedule-mobile" class="schedule-mobile"></div>
+  </div>
+
+</main>
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
